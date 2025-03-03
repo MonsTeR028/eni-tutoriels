@@ -17,6 +17,9 @@ class Content
     #[ORM\JoinColumn(nullable: false)]
     private ?Tutoriel $tutoriel = null;
 
+    #[ORM\Column(length: 8191)]
+    private ?string $text = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +33,18 @@ class Content
     public function setTutoriel(?Tutoriel $tutoriel): static
     {
         $this->tutoriel = $tutoriel;
+
+        return $this;
+    }
+
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text): static
+    {
+        $this->text = $text;
 
         return $this;
     }
