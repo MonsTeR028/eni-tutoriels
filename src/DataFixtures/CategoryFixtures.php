@@ -11,8 +11,6 @@ class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 3; $i++) {
-            CategoryFactory::createOne(['name' => "catégorie{$i}"]);
-        }
+        CategoryFactory::createMany(5);
     }
 }

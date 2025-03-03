@@ -32,7 +32,7 @@ final class ContentFactory extends PersistentProxyObjectFactory
     protected function defaults(): array|callable
     {
         return [
-            'tutoriel' => TutorielFactory::new(),
+            'text' => self::faker()->text(255),
         ];
     }
 

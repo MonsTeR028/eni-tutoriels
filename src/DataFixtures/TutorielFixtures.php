@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Content;
+use App\Factory\CategoryFactory;
 use App\Factory\TutorielFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -12,14 +12,19 @@ class TutorielFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        TutorielFactory::createMany(5);
+        $categories = CategoryFactory::all();
+
+        foreach ($categories as $category) {
+            TutorielFactory::createMany(rand(2, 6), function () use ($category) {
+                return ['category' => $category];
+            });
+        }
     }
 
-    public function getDependencies() : array
+    public function getDependencies(): array
     {
         return [
             CategoryFixtures::class,
-            ContentFixtures::class,
         ];
     }
 }
