@@ -3,8 +3,23 @@
 {% block title %}ENI - Guide Utilisateur{% endblock %}
 
 {% block body %}
-    Présentation ENI+Lien
     <div class="main">
-        {% foreach %}
+        <h2 id="title">
+            <p>Bienvenue sur le guide utilisateur d'</p>
+            <a href="https://urca.idm.oclc.org/login?url=http://www.eni-training.com/cs/univ-reims">ENI elearning</a>
+            <p>la plus grande plateforme de contenus pour les professionnels de l’informatique !</p>
+        </h2>
+        <h3>Vous retrouverez diverses tutoriels permettant de vous aider au mieux pour naviguer sur ENI</h3>
+        <div class="liste-categories">
+            {% for category in categories %}
+                <p>{{ category.name }}</p>
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                <div class="liste-tutoriels">
+                    {% for tutoriel in category.tutoriels%}
+                        <a href="#">{{ tutoriel.name }}</a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
