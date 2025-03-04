@@ -33,6 +33,7 @@ final class ContentFactory extends PersistentProxyObjectFactory
     {
         return [
             'text' => self::faker()->text(255),
+            'image' => 'assets/img/placeholder.png',
         ];
     }
 
