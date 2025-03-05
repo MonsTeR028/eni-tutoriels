@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=keyboard_arrow_down" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
         {% block stylesheets %}
         {% endblock %}
 
@@ -14,7 +14,11 @@
     <body>
         <header>
             <img src="{{ asset('assets/img/icon.png')}}" alt="Logo ENI" height=100px width=100px>
-            <p>Guide utilisateur - Tutoriels</p>
+            {% if app.current_route() == 'app_home' %}
+                <p>Guide utilisateur - Tutoriels</p>
+            {% else %}
+                {% block pageTitle %}{% endblock %}
+            {% endif %}
         </header>
         {% block body %}{% endblock %}
         <footer></footer>

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ tutoriel.name }}{% endblock %}
+
+{% block pageTitle %}
+    <p>{{ tutoriel.name }}</p>
+    <button onclick="window.location.href='{{ path('app_home')}}'">
+        Retour
+        <span class="material-symbols-outlined">keyboard_return</span>
+    </button>
+{% endblock %}
+
+{% block body %}
+    <button id="classic-button">Format classique</button>
+    <button id="video-button">Format vidéo</button>
+    <div class="tutoriel-classique">
+    {% for step in tutoriel.contents %}
+        {% set counter = (counter|default(0)) + 1 %}
+        <div class="tutoriel-step">
+            <p>Etape {{ counter }}</p>
+            <p>{{ step.text }}</p>
+            <img src="{{ asset(step.image) }}" alt="{{ step.text }}" height="300px" width="auto"/>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="tutoriel-video"></div>
+{% endblock %}
