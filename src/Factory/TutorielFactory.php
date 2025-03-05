@@ -31,8 +31,20 @@ final class TutorielFactory extends PersistentProxyObjectFactory
      */
     protected function defaults(): array|callable
     {
+        $name = self::faker()->text(60);
         return [
-            'name' => self::faker()->text(60),
+            'name' => $name,
+            'slug' => strtolower(
+                trim(preg_replace(
+                    '/[^a-zA-Z0-9]+/',
+                    '-',
+                    transliterator_transliterate(
+                        'Any-Latin; Latin-ASCII',
+                        html_entity_decode(
+                            strip_tags($name),
+                            ENT_QUOTES,
+                            'UTF-8'))),
+                    '-')),
         ];
     }
 
