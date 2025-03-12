@@ -13,12 +13,7 @@ class ContentFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $tutoriels = TutorielFactory::all();
-
-        foreach ($tutoriels as $tutoriel) {
-            ContentFactory::createMany(4, function () use ($tutoriel) {
-                return ['tutoriel' => $tutoriel];
-            });
-        }
+        ContentFactory::createOne(['tutoriel' => $tutoriels[10], 'image' => '../assets/ajouterFavoris/pageAcceuil.png']);
     }
 
     public function getDependencies(): array
