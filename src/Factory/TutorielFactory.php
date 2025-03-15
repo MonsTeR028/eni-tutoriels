@@ -15,10 +15,6 @@ final class TutorielFactory extends PersistentProxyObjectFactory
      *
      * @todo inject services if required
      */
-    public function __construct()
-    {
-    }
-
     public static function class(): string
     {
         return Tutoriel::class;
@@ -31,20 +27,8 @@ final class TutorielFactory extends PersistentProxyObjectFactory
      */
     protected function defaults(): array|callable
     {
-        $name = self::faker()->text(60);
         return [
-            'name' => $name,
-            'slug' => strtolower(
-                trim(preg_replace(
-                    '/[^a-zA-Z0-9]+/',
-                    '-',
-                    transliterator_transliterate(
-                        'Any-Latin; Latin-ASCII',
-                        html_entity_decode(
-                            strip_tags($name),
-                            ENT_QUOTES,
-                            'UTF-8'))),
-                    '-')),
+            'name' => self::faker()->text(60),
         ];
     }
 
@@ -54,7 +38,22 @@ final class TutorielFactory extends PersistentProxyObjectFactory
     protected function initialize(): static
     {
         return $this
-            // ->afterInstantiate(function(Tutoriel $tutoriel): void {})
-        ;
+            ->afterInstantiate(function (Tutoriel $tutoriel) {
+                if (!$tutoriel->getSlug()) { // Si aucun slug n'est défini
+                    $tutoriel->setSlug(self::generateSlug($tutoriel->getName()));
+                }
+            });
+    }
+
+    private static function generateSlug(string $name): string
+    {
+        return strtolower(trim(preg_replace(
+            '/[^a-zA-Z0-9]+/',
+            '-',
+            transliterator_transliterate(
+                'Any-Latin; Latin-ASCII',
+                html_entity_decode(strip_tags($name), ENT_HTML5, 'UTF-8')
+            )
+        ), '-'));
     }
 }

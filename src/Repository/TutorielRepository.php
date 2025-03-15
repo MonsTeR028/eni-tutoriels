@@ -16,6 +16,19 @@ class TutorielRepository extends ServiceEntityRepository
         parent::__construct($registry, Tutoriel::class);
     }
 
+    /**
+     * @param string $slug
+     * @return Tutoriel|null
+     */
+    public function findOneBySlug(string $slug): ?Tutoriel
+    {
+        return $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Tutoriel[] Returns an array of Tutoriel objects
     //     */

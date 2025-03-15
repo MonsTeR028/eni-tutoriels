@@ -16,7 +16,7 @@
                 <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 <div class="liste-tutoriels">
                     {% for tutoriel in category.tutoriels%}
-                        <a href={{ path('app_tutoriel', {id: tutoriel.id}) }}>{{ tutoriel.name }}</a>
+                        <a href={{ path('app_tutoriel', {slug: tutoriel.slug}) }}>{{ tutoriel.name }}</a>
                     {% endfor %}
                 </div>
             {% endfor %}
