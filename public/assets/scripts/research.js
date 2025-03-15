@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
-                if (tutoriel.parentElement.style.display === 'block') {
+                if (tutoriel.parentElement.style.display === 'flex') {
                     hideParent = false;
                 }
             })
@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 category.style.display = 'none';
             } else {
                 if (category.style.display === 'none') {
-                    category.style.display = 'block';
+                    category.style.display = 'flex';
                 }
             }
 
             if (category.querySelector('p').innerText.toLowerCase().includes(reseach.value.toLowerCase())
                 && category.style.display === 'none') {
-                category.style.display = 'block';
+                category.style.display = 'flex';
                 category.querySelectorAll('.liste-tutoriels .tutoriel').forEach((tutoriel) => {
                     if (tutoriel.style.display === 'none') {
-                        tutoriel.style.display = 'block';
+                        tutoriel.style.display = 'flex';
                     }
                 })
             }

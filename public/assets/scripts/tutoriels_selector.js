@@ -5,12 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoPart = document.querySelector('.tutoriel-video');
 
     classiqueButton.addEventListener('click', () => {
-        classiquePart.style.display = 'block';
+        classiquePart.style.display = 'flex';
         videoPart.style.display = 'none';
-    })
+
+        classiqueButton.className = 'tuto-button-gris'
+        videoButton.className = 'tuto-button-bleu';
+    });
 
     videoButton.addEventListener('click', () => {
         classiquePart.style.display = 'none';
-        videoPart.style.display = 'block';
-    })
-})
+        videoPart.style.display = 'flex';
+
+        videoButton.className = 'tuto-button-gris';
+        classiqueButton.className = 'tuto-button-bleu';
+    });
+});
