@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reseach = document.querySelector('input');
     const listeCategories = document.querySelectorAll('.category');
 
-    reseach.addEventListener('change', () => {
+    reseach.addEventListener('input', () => {
         listeCategories.forEach((category) => {
             let hideParent = true;
             category.querySelectorAll('.liste-tutoriels .tutoriel a').forEach((tutoriel) => {
