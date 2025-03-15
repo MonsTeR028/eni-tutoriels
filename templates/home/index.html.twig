@@ -10,16 +10,24 @@
             <p>la plus grande plateforme de contenus pour les professionnels de l’informatique !</p>
         </h2>
         <h3>Vous retrouverez divers tutoriels permettant de vous aider au mieux pour naviguer sur ENI</h3>
+        <label>
+            <input type="text" placeholder="Rechercher un tutoriel"/>
+        </label>
         <div class="liste-categories">
             {% for category in categories %}
-                <p>{{ category.name }}</p>
-                <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                <div class="liste-tutoriels">
-                    {% for tutoriel in category.tutoriels%}
-                        <a href={{ path('app_tutoriel', {slug: tutoriel.slug}) }}>{{ tutoriel.name }}</a>
-                    {% endfor %}
+                <div class="category">
+                    <p>{{ category.name }}</p>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    <div class="liste-tutoriels">
+                        {% for tutoriel in category.tutoriels %}
+                            <div class="tutoriel">
+                                <a href={{ path('app_tutoriel', {slug: tutoriel.slug}) }}>{{ tutoriel.name }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+<script src={{ asset('assets/scripts/research.js') }}></script>
 {% endblock %}
