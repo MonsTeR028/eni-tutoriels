@@ -3,39 +3,45 @@
 {% block title %}{{ tutoriel.name }}{% endblock %}
 
 {% block pageTitle %}
-    <p>{{ tutoriel.name }}</p>
-    <button onclick="window.location.href='{{ path('app_home')}}'">
+    <p class="poppins-bold">{{ tutoriel.name }}</p>
+    <button onclick="window.location.href='{{ path('app_home')}}'" class="poppins-bold">
         Retour
         <span class="material-symbols-outlined">keyboard_return</span>
     </button>
 {% endblock %}
 
 {% block body %}
-    <button id="classic-button">Format classique</button>
-    <button id="video-button">Format vidéo</button>
+    <div class="tuto-buttons">
+        <button id="classic-button" class="tuto-button-gris">Format classique</button>
+        <button id="video-button" class="tuto-button-bleu">Format vidéo</button>
+    </div>
     {% if tutoriel.contents is empty %}
-        <div class="tutoriel-classique" hidden>
-            <p>Pas de tutoriel textuel disponible 😞</p>
+        <div class="tutoriel-classique" style="display: none">
+            <div class="tutoriel-classique-no-text">
+                <p class="poppins-bold">Pas de tutoriel textuel disponible 😞</p>
+            </div>
         </div>
         <div class="tutoriel-video">
-            <iframe width="1120" height="630" src="https://www.youtube.com/embed/{{ tutoriel.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
+            <iframe width="1050" height="600" src="https://www.youtube.com/embed/{{ tutoriel.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
         </div>
     {% else %}
         <div class="tutoriel-classique">
             {% for step in tutoriel.contents %}
                 {% set counter = (counter|default(0)) + 1 %}
                 <div class="tutoriel-step">
-                    <p>Etape {{ counter }}</p>
-                    <p>{{ step.text }}</p>
-                    <img src="{{ asset(step.image) }}" alt="{{ step.text }}" height="300px" width="auto"/>
+                    <div class="tutoriel-step-text">
+                        <p class="poppins-bold">Etape {{ counter }}</p>
+                        <p class="poppins-regular">{{ step.text }}</p>
+                    </div>
+                    <img src="{{ asset(step.image) }}" alt="{{ step.text }}"/>
                 </div>
             {% endfor %}
         </div>
-        <div class="tutoriel-video" hidden>
+        <div class="tutoriel-video" style="display: none">
             {% if tutoriel.video %}
                 <iframe width="1120" height="630" src="https://www.youtube.com/embed/{{ tutoriel.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture;" allowfullscreen></iframe>
             {% else%}
-                <p>Pas de video disponible pour ce tutoriel 😞</p>
+                <p class="poppins-bold">Pas de video disponible pour ce tutoriel 😞</p>
             {% endif %}
         </div>
     {% endif %}
