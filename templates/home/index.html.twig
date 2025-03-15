@@ -3,31 +3,34 @@
 {% block title %}ENI - Guide Utilisateur{% endblock %}
 
 {% block body %}
-    <div class="main">
-        <h2 id="title">
+    <div class="main-title">
+        <div id="title" class="poppins-semibold">
             <p>Bienvenue sur le guide utilisateur d'</p>
             <a href="https://urca.idm.oclc.org/login?url=http://www.eni-training.com/cs/univ-reims">ENI elearning</a>
             <p>la plus grande plateforme de contenus pour les professionnels de l’informatique !</p>
-        </h2>
-        <h3>Vous retrouverez divers tutoriels permettant de vous aider au mieux pour naviguer sur ENI</h3>
-        <label>
-            <input type="text" placeholder="Rechercher un tutoriel"/>
-        </label>
-        <div class="liste-categories">
-            {% for category in categories %}
-                <div class="category">
-                    <p>{{ category.name }}</p>
-                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
-                    <div class="liste-tutoriels">
-                        {% for tutoriel in category.tutoriels %}
-                            <div class="tutoriel">
-                                <a href={{ path('app_tutoriel', {slug: tutoriel.slug}) }}>{{ tutoriel.name }}</a>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
         </div>
+        <h3 class="poppins-semibold">Vous retrouverez divers tutoriels permettant de vous aider au mieux pour naviguer sur ENI</h3>
+        <label class="search-container">
+            <input type="text" placeholder="Rechercher un tutoriel">
+            <span class="search-icon"></span>
+        </label>
+    </div>
+    <div class="liste-categories">
+        {% for category in categories %}
+            <div class="category">
+                <div class="category-container">
+                    <p class="poppins-semibold">{{ category.name }}</p>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </div>
+                <div class="liste-tutoriels">
+                    {% for tutoriel in category.tutoriels %}
+                        <div class="tutoriel">
+                            <a href="{{ path('app_tutoriel', {slug: tutoriel.slug}) }}" class="poppins-regular">{{ tutoriel.name }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 <script src={{ asset('assets/scripts/research.js') }}></script>
 {% endblock %}
