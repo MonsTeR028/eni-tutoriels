@@ -151,6 +151,7 @@ h3 {
     max-width: 600px;
     height: 55px;
     display: flex;
+    align-items: center;
 }
 
 .search-container input[type="text"] {
@@ -175,6 +176,16 @@ h3 {
     height: 30px;
     cursor: pointer;
     color: #515151;
+}
+
+.search-container .clear-icon {
+    position: absolute;
+    right: 23px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    cursor: pointer;
+    color: black;
 }
 
 .liste-categories {

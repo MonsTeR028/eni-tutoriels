@@ -1,40 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const reseach = document.querySelector('input');
+    const searchInput = document.getElementById('searchInput');
+    const searchIcon = document.querySelector('.search-icon');
+    const clearIcon = document.querySelector('.clear-icon');
     const listeCategories = document.querySelectorAll('.category');
 
-    reseach.addEventListener('input', () => {
+    searchInput.addEventListener('input', () => {
+        if (searchInput.value.length > 0) {
+            clearIcon.style.display = 'block';
+            searchIcon.style.display = 'none';
+        } else {
+            clearIcon.style.display = 'none';
+            searchIcon.style.display = 'block';
+        }
+
         listeCategories.forEach((category) => {
             let hideParent = true;
             category.querySelectorAll('.liste-tutoriels .tutoriel a').forEach((tutoriel) => {
-                if (!tutoriel.innerText.toLowerCase().includes(reseach.value.toLowerCase())) {
-                    tutoriel.parentElement.style.display = 'none'
+                if (!tutoriel.innerText.toLowerCase().includes(searchInput.value.toLowerCase())) {
+                    tutoriel.parentElement.style.display = 'none';
                 } else {
-                    if (tutoriel.parentElement.style.display === 'none') {
-                        tutoriel.parentElement.style.display = 'block';
-                    }
-                }
-
-                if (tutoriel.parentElement.style.display === 'flex') {
+                    tutoriel.parentElement.style.display = 'block';
                     hideParent = false;
                 }
-            })
-            if (hideParent) {
-                category.style.display = 'none';
-            } else {
-                if (category.style.display === 'none') {
-                    category.style.display = 'flex';
-                }
-            }
+            });
 
-            if (category.querySelector('p').innerText.toLowerCase().includes(reseach.value.toLowerCase())
-                && category.style.display === 'none') {
-                category.style.display = 'flex';
-                category.querySelectorAll('.liste-tutoriels .tutoriel').forEach((tutoriel) => {
-                    if (tutoriel.style.display === 'none') {
-                        tutoriel.style.display = 'flex';
-                    }
-                })
-            }
-        })
-    })
-})
+            category.style.display = hideParent ? 'none' : 'flex';
+        });
+    });
+
+    clearIcon.addEventListener('click', () => {
+        searchInput.value = '';
+        clearIcon.style.display = 'none';
+        searchIcon.style.display = 'block';
+
+        listeCategories.forEach((category) => {
+            category.style.display = 'flex';
+            category.querySelectorAll('.liste-tutoriels .tutoriel').forEach((tutoriel) => {
+                tutoriel.style.display = 'block';
+            });
+        });
+    });
+});
