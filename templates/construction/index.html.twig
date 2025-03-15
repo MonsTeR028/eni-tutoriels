@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page en construction{% endblock %}
+
+{% block pageTitle %}
+    <p>Page en construction</p>
+{% endblock %}
+
+{% block body %}
+    <div class="en-construction">
+        <h1>Le tutoriel recherché est en construction</h1>
+        <p>Celui-ci sera bientôt disponible</p>
+        <p>Retournez à <a href="{{ path('app_home') }}">l'accueil</a></p>
+    </div>
+{% endblock %}

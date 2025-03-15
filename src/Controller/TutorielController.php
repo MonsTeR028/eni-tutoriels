@@ -19,6 +19,10 @@ final class TutorielController extends AbstractController
             throw new NotFoundHttpException('Tutoriel introuvable');
         }
 
+        if ($tutoriel->getContents()->isEmpty() && null == $tutoriel->getVideo()) {
+            return $this->redirectToRoute('app_construction');
+        }
+
         return $this->render('tutoriel/index.html.twig', [
             'tutoriel' => $tutoriel,
         ]);
