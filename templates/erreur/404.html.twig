@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable{% endblock %}
+
+{% block body %}
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>😢 Oups !</h1>
+        <h2>La page que vous cherchez n'existe pas.</h2>
+        <p>Retournez à <a href="{{ path('app_home') }}">l'accueil</a></p>
+    </div>
+{% endblock %}
+
