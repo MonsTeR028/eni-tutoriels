@@ -10,7 +10,7 @@ class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $categories = ['Rechercher une recherche',
+        $categories = ['Rechercher un ouvrage',
             'Consulter un livre',
             'Gérer ses favoris',
             'Gérer ses notes',
