@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block body %}
+    <button id="scrollToTop" class="scroll-top-btn">↑</button>
     <div class="tuto-buttons">
         <button id="classic-button" class="tuto-button-gris">Format classique</button>
         <button id="video-button" class="tuto-button-bleu">Format vidéo</button>
@@ -47,4 +48,5 @@
     {% endif %}
 
 <script src={{ asset('assets/scripts/tutoriels_selector.js') }}></script>
+<script src="{{ asset('assets/scripts/toUp.js') }}"></script>
 {% endblock %}
