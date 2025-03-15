@@ -23,5 +23,13 @@
         </div>
     {% endfor %}
     </div>
-    <div class="tutoriel-video"></div>
+    <div class="tutoriel-video" hidden>
+        {% if tutoriel.video %}
+            <iframe width="560" height="315" src={{ tutoriel.video}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        {% else%}
+            <p>Pas de video disponible pour ce tutoriel 😞</p>
+        {% endif %}
+    </div>
+
+<script src={{ asset('assets/scripts/tutoriels_selector.js') }}></script>
 {% endblock %}
