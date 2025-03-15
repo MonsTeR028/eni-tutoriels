@@ -3,11 +3,14 @@
 {% block title %}Page en construction{% endblock %}
 
 {% block pageTitle %}
-    <p>Page en construction</p>
+    <p class="poppins-bold">Page en construction</p>
 {% endblock %}
 
 {% block body %}
-    <div class="en-construction">
+    <div class="en-construction poppins-bold">
+        <span class="material-symbols-outlined">
+            construction
+        </span>
         <h1>Le tutoriel recherché est en construction</h1>
         <p>Celui-ci sera bientôt disponible</p>
         <p>Retourner à <a href="{{ path('app_home') }}">l'accueil</a></p>
