@@ -73,13 +73,23 @@ class ContentFixtures extends Fixture implements DependentFixtureInterface
             'image' => '../assets/gestionCompte/pageCompteNews.png',
             'text' => "Vous pourrez activer ou désactiver l'option pour recevoir régulièrement des mails concernant l'actualité du site ENI."]);
 
-        // Activer/désactiver le mode sombre
+        // Changer le thème du site
         ContentFactory::createOne([
             'tutoriel' => $tutoriels[17],
             'image' => '../assets/gestionCompte/pageAccueilCompte.png',
-            'text' => 'Pour activer ou désactiver le mode sombre, rendez-vous dans la section "Mon Compte", puis dans le menu déroulant sélectionnez "Mon profil et mes objectifs".']);
+            'text' => 'Pour changer la couleur du thème du site, rendez-vous dans la section "Mon Compte", puis dans le menu déroulant sélectionnez "Mon profil et mes objectifs".']);
         ContentFactory::createOne([
             'tutoriel' => $tutoriels[17],
+            'image' => '../assets/gestionCompte/pageCompteCouleur.png',
+            'text' => "Vous pourrez cliquer sur l'icône en forme de cœur et choisir une autre couleur pour le site ENI."]);
+
+        // Activer/désactiver le mode sombre
+        ContentFactory::createOne([
+            'tutoriel' => $tutoriels[18],
+            'image' => '../assets/gestionCompte/pageAccueilCompte.png',
+            'text' => 'Pour activer ou désactiver le mode sombre, rendez-vous dans la section "Mon Compte", puis dans le menu déroulant sélectionnez "Mon profil et mes objectifs".']);
+        ContentFactory::createOne([
+            'tutoriel' => $tutoriels[18],
             'image' => '../assets/gestionCompte/pageCompteNews.png',
             'text' => "Vous pourrez cocher ou décocher l'option pour activer le mode sombre sur le site ENI."]);
     }
