@@ -40,6 +40,7 @@ class TutorielFixtures extends Fixture implements DependentFixtureInterface
         TutorielFactory::createOne(['category' => $categories[4], 'name' => 'Avatar', 'video' => 'HytQThGTwJc']);
         TutorielFactory::createOne(['category' => $categories[4], 'name' => 'Objectif d\'apprentissage', 'video' => 'HytQThGTwJc']);
         TutorielFactory::createOne(['category' => $categories[4], 'name' => 'Newsletter', 'video' => 'HytQThGTwJc']);
+        TutorielFactory::createOne(['category' => $categories[4], 'name' => 'Thème', 'video' => 'HytQThGTwJc']);
         TutorielFactory::createOne(['category' => $categories[4], 'name' => 'Mode sombre', 'video' => 'HytQThGTwJc']);
     }
 
