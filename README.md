@@ -4,7 +4,7 @@
 
 ## 📖 Introduction
 
-ENI e-Learning est une application web permettant aux utilisateurs d'accéder à un large éventail de tutoriels afin d'optimiser l'utilisation du recueil d'ouvrages proposés.
+Le guide utilisateur d'ENI est une application web permettant aux utilisateurs d'accéder à un large éventail de tutoriels afin d'optimiser l'utilisation du recueil d'ouvrages proposés par la platforme ENI.
 
 ### ✨ Fonctionnalités principales
 
