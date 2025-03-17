@@ -19,6 +19,9 @@ Le guide utilisateur d'ENI est une application web permettant aux utilisateurs d
 
 ---
 
+## 👔 Pour un futur recruteur
+- [Lien vers le figma : (password : audi-figma)](https://www.figma.com/design/NI0C5stVBFY5Pbfh4v6SpE/Guide-utilisateur?node-id=0-1&t=ANXgcYJjqkuEB2Uw-1)
+
 ## 🚀 Installation et Configuration
 
 ### 📌 Prérequis
